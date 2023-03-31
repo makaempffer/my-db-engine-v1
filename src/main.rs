@@ -1,8 +1,9 @@
-
+use::std::str;
 fn main() {
     let mut table = DataTable::new();
     table.set(b"Mathias", b"aaaa");
     table.get(b"Mathias");
+    table.get(b"Puto");
 }
 
 
@@ -54,10 +55,11 @@ impl DataTable {
     }
 
     pub fn get(&self, key: &[u8]) -> Option<&DataEntry> {
-        if let Ok(idx) = self.get_index(key) {
+        if let Ok(idx) = self.get_index(key) { 
             println!("{:?}", &self.entries[idx].value);
             return Some(&self.entries[idx]);
         }
+        println!("[GET] - NO KEY WITH: {:?}", str::from_utf8(key));
         None
     } 
 
