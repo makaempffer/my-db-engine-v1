@@ -3,7 +3,9 @@ fn main() {
     let mut table = DataTable::new();
     table.set(b"Mathias", b"aaaa");
     table.get(b"Mathias");
+    table.set(b"Makako", b"sis");
     table.get(b"Puto");
+    table.get(b"Makako");
 }
 
 
